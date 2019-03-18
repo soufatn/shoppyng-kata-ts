@@ -1,0 +1,9 @@
+.gitignore
+#VSCode
+/.vscode
+
+# Node
+.nyc_output
+/coverage
+/node_modules
+*.log

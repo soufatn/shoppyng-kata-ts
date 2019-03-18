@@ -1,0 +1,25 @@
+{
+    "name": "shoppyng_kata",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "author": "",
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf coverage",
+        "test": "npm run clean && npm run test:coverage",
+        "test:coverage": "nyc mocha --opts ./mocha.opts",
+        "test:watch": "mocha --opts ./mocha.opts --watch"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^11.11.3",
+        "chai": "^4.2.0",
+        "mocha": "^6.0.2",
+        "nyc": "^13.3.0",
+        "rimraf": "^2.6.3",
+        "ts-node": "^8.0.3",
+        "typescript": "^3.3.3333"
+    }
+}
