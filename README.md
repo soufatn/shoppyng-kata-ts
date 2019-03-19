@@ -22,7 +22,13 @@ Aide :
 - un acheteur peut consulter tous les produits de son panier 
 - un acheteur peut consulter le montant total de son panier
 
-Pour lancer les tests lancer la commande 
+Pour installer l'application
+
+```javascript
+npm install
+```
+
+Pour lancer les tests
 
 ```javascript
 npm test
