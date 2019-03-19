@@ -8,7 +8,7 @@ export class Cart {
     addItem(product: Product, quantity: number) {
         const foundIndex = this.items.findIndex((cartItem) => cartItem.product === product);
         if (foundIndex > -1) {
-            const productInCart: CartItem = this.items.find((cartItem) => cartItem.product === product);
+            const productInCart = this.items.find((cartItem) => cartItem.product === product);
             productInCart.quantity += quantity;
             productInCart.totalPrice = productInCart.quantity * product.price;
             this.items[foundIndex] = productInCart;
@@ -20,7 +20,7 @@ export class Cart {
     deleteItem(product: Product) {
         const foundIndex = this.items.findIndex((cartItem) => cartItem.product === product);
         if (foundIndex > -1) {
-            const productInCart: CartItem = this.items.find((cartItem) => cartItem.product === product);
+            const productInCart = this.items.find((cartItem) => cartItem.product === product);
             if (productInCart.quantity > 1) {
                 productInCart.quantity -= 1;
                 productInCart.totalPrice = productInCart.quantity * product.price;
@@ -29,7 +29,6 @@ export class Cart {
                 this.items = this.items.filter((cartItem) => cartItem.product !== product);
             }
         }
-
     }
 
     getItems() {
