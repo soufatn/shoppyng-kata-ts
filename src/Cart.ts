@@ -6,18 +6,29 @@ export class Cart {
     }
 
     addItem(product: Product, quantity: number) {
-        this.items.push(new CartItem(product, quantity, quantity * product.price));
+        const foundIndex = this.items.findIndex((cartItem) => cartItem.product === product);
+        if (foundIndex > -1) {
+            const productInCart: CartItem = this.items.find((cartItem) => cartItem.product === product);
+            productInCart.quantity += quantity;
+            productInCart.totalPrice = productInCart.quantity * product.price;
+            this.items[foundIndex] = productInCart;
+        } else {
+            this.items.push(new CartItem(product, quantity, quantity * product.price));
+        }
     }
 
     deleteItem(product: Product) {
-        this.items.filter((cartItem) => cartItem.product === product).map((cartItem) => {
-            if (cartItem.quantity > 1) {
-                cartItem.quantity = cartItem.quantity - 1;
-                cartItem.totalPrice = cartItem.quantity * product.price;
+        const foundIndex = this.items.findIndex((cartItem) => cartItem.product === product);
+        if (foundIndex > -1) {
+            const productInCart: CartItem = this.items.find((cartItem) => cartItem.product === product);
+            if (productInCart.quantity > 1) {
+                productInCart.quantity -= 1;
+                productInCart.totalPrice = productInCart.quantity * product.price;
+                this.items[foundIndex] = productInCart;
             } else {
                 this.items = this.items.filter((cartItem) => cartItem.product !== product);
             }
-        })
+        }
 
     }
 
